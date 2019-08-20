@@ -3,13 +3,11 @@ import { setAuthedUser } from './authedUser';
 import { receiveUsers } from './users';
 import { getInitialData } from '../util/api';
 
-const AUTHED_ID = 'tylermcginnis';
-
-export function handleInitialData() {
+export function handleInitialData(authedUser) {
   return (dispatch) => {
     dispatch(showLoading());
     getInitialData().then(({users, questions}) => {
-      dispatch(setAuthedUser(AUTHED_ID));
+      dispatch(setAuthedUser(authedUser));
       dispatch(receiveUsers(users));
       dispatch(hideLoading());
     })
