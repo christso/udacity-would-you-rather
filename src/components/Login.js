@@ -15,17 +15,16 @@ class Login extends Component {
 
 
   render() {
+    const { authedUser, users } = this.props;
+    const userIds = Object.keys(users);
     return (
       <div>
         <h3>Welcome to the Would You Rather App!</h3>
         <h5>Please sign in to continue</h5>
         <h2>Sign In</h2>
         <form onSubmit={this.handleSubmit}>
-          <select value={''} onChange={this.handleChange}>
-            <option value="grapefruit">Grapefruit</option>
-            <option value="lime">Lime</option>
-            <option value="coconut">Coconut</option>
-            <option value="mango">Mango</option>
+          <select value={authedUser || ''} onChange={this.handleChange}>
+            {userIds.map(id => (<option key={id} value={id}>{users[id].name}</option>))}
           </select>
           <button type='submit'>Sign In</button>
         </form>
