@@ -5,6 +5,7 @@ import LoadingBar from 'react-redux-loading';
 import Login from './Login';
 import { handleInitialData } from '../actions/shared';
 import Home from './Home';
+import QuestionPage from './QuestionPage';
 
 class App extends Component {
   componentDidMount() {
@@ -19,6 +20,7 @@ class App extends Component {
           {this.props.isLoggedIn === true
             ? <div>
                 <Route path='/' exact component={Home} />
+                <Route path='/questions/:id' component={QuestionPage} />
               </div>
             : <Login /> }
           

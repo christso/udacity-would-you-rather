@@ -1,5 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux';
+import { Link } from 'react-router-dom';
 
 function Question(props) {
   const { question, author } = props;
@@ -10,6 +11,8 @@ function Question(props) {
       <img src={author.avatarURL} alt="Avatar" height="100" width="100"></img>
       <p><strong>Would you rather</strong></p>
       <p>{question.optionOne.text}</p>
+      <br />
+      <Link to={`/questions/${question.id}`}><button>View Poll</button></Link>
     </div>
   )
 }
