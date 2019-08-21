@@ -13,6 +13,42 @@ code {
 }
 
 .container {
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 10px;
+}
+
+.active {
+  font-weight: bold;
+}
+
+a {
+  text-decoration: none;
+  color: #252525;
+}
+
+.nav ul {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  text-decoration: none;
+}
+
+.nav li:first-child {
+  padding-left: 0;
+}
+
+ul {
+  padding-left: 0;
+}
+
+li {
+  list-style-type: none;
+  padding: 10px;
+  text-decoration: none;
+}
+
+.tabs {
   border: 1px solid #ccc;
   margin-top: 10px;
   margin-left: 20px;
@@ -61,3 +97,4 @@ code {
   border: 1px solid #ccc;
   margin: 10px;
 }
+

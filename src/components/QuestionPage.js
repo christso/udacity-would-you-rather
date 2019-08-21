@@ -28,7 +28,7 @@ class QuestionPage extends Component {
   }
 
   render() {
-    const { authedUser, question } = this.props;
+    const { question } = this.props;
 
     return (
       <div>

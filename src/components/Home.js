@@ -19,11 +19,10 @@ class Home extends Component {
   }
 
   render() {
-    // users + questions
     const { authedUser, unansweredQuestions, answeredQuestions } = this.props;
 
     return (
-      <div className='container'>
+      <div className='tabs'>
         <div className='tab'>
           <button onClick={this.onUnansweredClick} 
             className={this.state.activeTab === UNANSWERED ? 'active' : ''}>Unanswered Questions</button>
@@ -35,8 +34,6 @@ class Home extends Component {
           ? <QuestionList authedUser={authedUser} questions={unansweredQuestions} />
           : <QuestionList authedUser={authedUser} questions={answeredQuestions} />}
       </div>
-
-      // TODO: filter answered questions by authedUser
     )
   }
 }
