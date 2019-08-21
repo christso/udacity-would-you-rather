@@ -1,10 +1,11 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { handleAnswerQuestion } from '../actions/questions';
+import { OPTION_ONE, OPTION_TWO } from './QuestionPage';
 
 export class QuestionForm extends Component {
   state = {
-    selectedOption: 'optionOne'
+    selectedOption: OPTION_ONE
   }
 
   handleOptionChange = (e) => {
@@ -38,9 +39,9 @@ export class QuestionForm extends Component {
           <label>
             <input
               type='radio'
-              name='optionOne'
-              value='optionOne'
-              checked={this.state.selectedOption === 'optionOne'}
+              name={OPTION_ONE}
+              value={OPTION_ONE}
+              checked={this.state.selectedOption === OPTION_ONE}
               onChange={this.handleOptionChange}
               className='form-check-input'
             />
@@ -49,9 +50,9 @@ export class QuestionForm extends Component {
           <label>
             <input
               type='radio'
-              name='optionTwo'
-              value='optionTwo'
-              checked={this.state.selectedOption === 'optionTwo'}
+              name={OPTION_TWO}
+              value={OPTION_TWO}
+              checked={this.state.selectedOption === OPTION_TWO}
               onChange={this.handleOptionChange}
               className='form-check-input'
             />
