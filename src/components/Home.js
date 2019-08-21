@@ -1,23 +1,44 @@
-import React from 'react';
+import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import QuestionList from './QuestionList'
 
-function Home(props) {
-  // users + questions
-  const { authedUser, unansweredQuestions, answeredQuestions } = props;
+const UNANSWERED = 'unanswered';
+const ANSWERED = 'answered';
 
-  return (
-    <div className='tabs'>
-      <ul>
-        <li>Unanswered Questions</li>
-        <li>Answered Questions</li>
-      </ul>
-      <QuestionList authedUser={authedUser} questions={unansweredQuestions} />
-      <QuestionList authedUser={authedUser} questions={answeredQuestions} />
-    </div>
+class Home extends Component {
+  state = {
+    activeTab: UNANSWERED
+  }
 
-    // TODO: filter answered questions by authedUser
-  )
+  onUnansweredClick = (e) => {
+    this.setState(() => ({ activeTab: UNANSWERED }))
+  }
+
+  onAnsweredClick = (e) => {
+    this.setState(() => ({ activeTab: ANSWERED }))
+  }
+
+  render() {
+    // users + questions
+    const { authedUser, unansweredQuestions, answeredQuestions } = this.props;
+
+    return (
+      <div>
+        <div className='tab'>
+          <button onClick={this.onUnansweredClick} 
+            className={this.state.activeTab === UNANSWERED ? 'active' : ''}>Unanswered Questions</button>
+          <button onClick={this.onAnsweredClick} 
+            className={this.state.activeTab === ANSWERED ? 'active' : ''}>Answered Questions</button>
+        </div>
+     
+        {this.state.activeTab === UNANSWERED
+          ? <QuestionList authedUser={authedUser} questions={unansweredQuestions} />
+          : <QuestionList authedUser={authedUser} questions={answeredQuestions} />}
+      </div>
+
+      // TODO: filter answered questions by authedUser
+    )
+  }
 }
 
 function mapStateToProps({ authedUser, users, questions }) {
@@ -32,7 +53,7 @@ function mapStateToProps({ authedUser, users, questions }) {
 
   const answeredQids = Object.keys(user.answers);
   console.log(answeredQids)
- 
+
   const unansweredQuestions = Object.keys(questions)
     .filter(id => !answeredQids.includes(id))
     .reduce((q, id) => {
@@ -40,11 +61,11 @@ function mapStateToProps({ authedUser, users, questions }) {
       return q;
     }, {});
   const answeredQuestions = Object.keys(questions)
-  .filter(id => answeredQids.includes(id))
-  .reduce((q, id) => {
-    q[id] = questions[id]
-    return q;
-  }, {});
+    .filter(id => answeredQids.includes(id))
+    .reduce((q, id) => {
+      q[id] = questions[id]
+      return q;
+    }, {});
 
   return {
     authedUser,
