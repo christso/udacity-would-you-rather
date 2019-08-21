@@ -23,7 +23,7 @@ class Home extends Component {
     const { authedUser, unansweredQuestions, answeredQuestions } = this.props;
 
     return (
-      <div>
+      <div className='container'>
         <div className='tab'>
           <button onClick={this.onUnansweredClick} 
             className={this.state.activeTab === UNANSWERED ? 'active' : ''}>Unanswered Questions</button>
@@ -52,8 +52,6 @@ function mapStateToProps({ authedUser, users, questions }) {
   }
 
   const answeredQids = Object.keys(user.answers);
-  console.log(answeredQids)
-
   const unansweredQuestions = Object.keys(questions)
     .filter(id => !answeredQids.includes(id))
     .reduce((q, id) => {

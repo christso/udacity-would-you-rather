@@ -12,14 +12,18 @@ code {
     monospace;
 }
 
-/* Style the tab */
-.tab {
-  overflow: hidden;
+.container {
   border: 1px solid #ccc;
-  background-color: #f1f1f1;
   margin-top: 10px;
   margin-left: 20px;
   margin-right: 20px;
+}
+
+/* Style the tab */
+.tab {
+  overflow: hidden;
+  border-bottom: 1px solid #ccc;
+  background-color: #f1f1f1;
 }
 
 /* Style the buttons inside the tab */
@@ -51,4 +55,9 @@ code {
   padding: 6px 12px;
   border: 1px solid #ccc;
   border-top: none;
+}
+
+.card {
+  border: 1px solid #ccc;
+  margin: 10px;
 }

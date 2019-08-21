@@ -6,12 +6,9 @@ function QuestionList(props) {
   const { questions } = props;
   return (
     <div>
-      <ul>
-        {Object.keys(questions).map(qid => (
-          <Question key={qid} questionId={qid} />
-        ))}
-      </ul>
-      
+      {Object.keys(questions).map(qid => (
+        <Question key={qid} questionId={qid} />
+      ))}
     </div>
   );
 }
