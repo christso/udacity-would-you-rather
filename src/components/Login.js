@@ -35,7 +35,7 @@ class Login extends Component {
           <select value={selectedUser} onChange={this.handleChange}>
             {userIds.map(id => (<option key={id} value={id}>{users[id].name}</option>))}
           </select>
-          <button type='submit'>Sign In</button>
+          <button type='submit' className='button-action'>Sign In</button>
         </form>
       </div>
     )

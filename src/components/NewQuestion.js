@@ -27,6 +27,8 @@ class NewQuestion extends Component {
   }
 
   render() {
+    const { optionOneText, optionTwoText } = this.state;
+
     return (
       <div>
         <h3>Create New Question</h3>
@@ -39,8 +41,9 @@ class NewQuestion extends Component {
           <input type='text' onChange={this.handleOptionTwoChange} placeholder='Enter Option Two Text here' />
           <br />
           <button 
-            className='btn'
-            type='submit'>
+            className='button-action'
+            type='submit'
+            disabled={optionOneText === '' || optionTwoText === ''}>
               Submit
           </button>
         </form>

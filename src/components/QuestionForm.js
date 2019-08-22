@@ -33,7 +33,7 @@ export class QuestionForm extends Component {
 
     return (
       <div>
-        {author.name} asks
+        <h2>{author.name} asks</h2>
         <h3>Would You Rather ...</h3>
         <form onSubmit={this.handleSubmit}>
           <label>
@@ -47,6 +47,7 @@ export class QuestionForm extends Component {
             />
             {question.optionOne.text}
           </label>
+          <br />
           <label>
             <input
               type='radio'
@@ -58,7 +59,7 @@ export class QuestionForm extends Component {
             />
             {question.optionTwo.text}
           </label>
-          <button type='submit'>Submit</button>
+          <button type='submit' className='button-action'>Submit</button>
         </form>
       </div>
     )

@@ -7,6 +7,36 @@ body {
   -moz-osx-font-smoothing: grayscale;
 }
 
+.button-link {
+  background-color: white; 
+  border: 2px solid rgb(49, 153, 53);
+  color: rgb(49, 153, 53); 
+  padding: 2px 4px;
+  text-align: center;
+  text-decoration: none;
+  display: block;
+  margin: 5px auto 5px auto;
+  font-size: 16px;
+  justify-content: center;
+  cursor: pointer;
+  width: 95%;
+}
+
+.button-action {
+  background-color: mediumseagreen; 
+  border: none;
+  color: white; 
+  padding: 2px 4px;
+  text-align: center;
+  text-decoration: none;
+  display: block;
+  margin: 5px auto 5px auto;
+  font-size: 16px;
+  justify-content: center;
+  cursor: pointer;
+  width: 100%;
+}
+
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
     monospace;
@@ -26,7 +56,6 @@ a {
   text-decoration: none;
   color: #252525;
 }
-
 
 .topnav {
   overflow: hidden;

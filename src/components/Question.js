@@ -12,7 +12,7 @@ function Question(props) {
       <p><strong>Would you rather</strong></p>
       <p>{question.optionOne.text}</p>
       <br />
-      <Link to={`/questions/${question.id}`}><button>View Poll</button></Link>
+      <Link to={`/questions/${question.id}`}><button className='button-link'>View Poll</button></Link>
     </div>
   )
 }
