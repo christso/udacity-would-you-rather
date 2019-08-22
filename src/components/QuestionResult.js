@@ -12,12 +12,13 @@ function QuestionResult(props) {
   return (
     <div>
       <h3>Asked by {author.name}</h3> 
-      <h2>Results:</h2>
       <div>{question.optionOne.text} {yourAnswer === OPTION_ONE ? ' (your vote)' : ''}</div>
-      <p>{oneVotes} out of {totalVotes} votes</p>
+      <div>{Math.round(oneVotes/totalVotes*100)}%</div>
+      <div>{oneVotes} out of {totalVotes} votes</div>
       <br />
       <div>{question.optionTwo.text} {yourAnswer === OPTION_TWO ? ' (your vote)' : ''}</div>
-      <p>{twoVotes} out of {totalVotes} votes</p>
+      <div>{Math.round(twoVotes/totalVotes*100)}%</div>
+      <div>{twoVotes} out of {totalVotes} votes</div>
     </div>
   )
 }
