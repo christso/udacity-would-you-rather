@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { withRouter } from 'react-router-dom';
 import { connect } from 'react-redux';
 import { handleAddQuestion } from '../actions/questions';
 
@@ -12,6 +13,7 @@ class NewQuestion extends Component {
     e.preventDefault();
     const { optionOneText, optionTwoText } = this.state;
     this.props.dispatch(handleAddQuestion(optionOneText, optionTwoText));    
+    this.props.history.push('/');
   }
 
   handleOptionOneChange = (e) => {
@@ -54,4 +56,4 @@ function mapStateToProps({ authedUser }) {
   };
 }
 
-export default connect(mapStateToProps)(NewQuestion);
+export default withRouter(connect(mapStateToProps)(NewQuestion));
