@@ -1,10 +1,8 @@
 import React from 'react';
-import { connect } from 'react-redux';
 
-function User(props) {
+export default function User(props) {
   const { user } = props;
-  const answered = Object.keys(user.answers).length;
-  const created = user.questions.length;
+  const { answered, created, score } = user;
 
   return (
     <div className='container-body'>
@@ -28,17 +26,9 @@ function User(props) {
         <div className='divider' />
         <div className='stat-col'>
           <div className='stat-col-param'>Score</div>
-          <div className='stat-col-value'>{answered + created}</div>
+          <div className='stat-col-value'>{score}</div>
         </div>
       </div>
     </div>
   )
 }
-
-function mapStateToProps({ users }, { id }) {
-  return {
-    user: users[id]
-  };
-}
-
-export default connect(mapStateToProps)(User);
