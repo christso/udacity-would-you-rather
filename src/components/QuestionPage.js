@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React from 'react';
 import { withRouter } from 'react-router-dom';
 import { connect } from 'react-redux';
 import QuestionForm from './QuestionForm';
@@ -7,27 +7,24 @@ import QuestionResult from './QuestionResult';
 export const OPTION_ONE = 'optionOne';
 export const OPTION_TWO = 'optionTwo';
 
-class QuestionPage extends Component {
+function QuestionPage(props) {
+  const { question, author, authedUser } = props;
+  if (!question) {
+    this.props.history.push('/404');
+    return null;
+  }
 
-  render() {
-    const { question, author, authedUser } = this.props;
-    if (!question) {
-      this.props.history.push('/404');
-      return null;
-    }
-
-    const answer = question.optionOne.votes.findIndex(id => id === authedUser) > -1
-      ? OPTION_ONE
-      : question.optionTwo.votes.findIndex(id => id === authedUser) > -1 
+  const answer = question.optionOne.votes.findIndex(id => id === authedUser) > -1
+    ? OPTION_ONE
+    : question.optionTwo.votes.findIndex(id => id === authedUser) > -1
       ? OPTION_TWO
       : null;
 
-    if (answer === null) {
-      return (<QuestionForm question={question} author={author} authedUser={authedUser} />);
-    }
-  
-    return (<QuestionResult question={question} yourAnswer={answer} author={author} authedUser={authedUser} />);
+  if (answer === null) {
+    return (<QuestionForm question={question} author={author} authedUser={authedUser} />);
   }
+
+  return (<QuestionResult question={question} yourAnswer={answer} author={author} authedUser={authedUser} />);
 }
 
 function mapStateToProps({ authedUser, questions, users }, { match }) {
@@ -36,7 +33,7 @@ function mapStateToProps({ authedUser, questions, users }, { match }) {
   if (!question) {
     return {
       authedUser,
-      quesetion: null,
+      question: null,
       author: null
     };
   }

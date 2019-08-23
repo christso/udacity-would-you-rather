@@ -23,7 +23,7 @@ function answerQuestion ({ authedUser, qid, answer }) {
 
 export function handleAnswerQuestion(info) {
   return (dispatch) => {
-    dispatch(showLoading());
+  dispatch(showLoading());
     return saveQuestionAnswer(info)
       .then(() => dispatch(answerQuestion(info)))
       .then(() => dispatch(hideLoading()))
