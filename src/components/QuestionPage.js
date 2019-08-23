@@ -11,6 +11,11 @@ class QuestionPage extends Component {
 
   render() {
     const { question, author, authedUser } = this.props;
+    if (!question) {
+      this.props.history.push('/404');
+      return null;
+    }
+
     const answer = question.optionOne.votes.findIndex(id => id === authedUser) > -1
       ? OPTION_ONE
       : question.optionTwo.votes.findIndex(id => id === authedUser) > -1 
@@ -27,7 +32,16 @@ class QuestionPage extends Component {
 
 function mapStateToProps({ authedUser, questions, users }, { match }) {
   const qid = match.params.id;
-  const author = users[questions[qid].author];
+  const question = questions[qid];
+  if (!question) {
+    return {
+      authedUser,
+      quesetion: null,
+      author: null
+    };
+  }
+
+  const author = users[question.author];
   return {
     authedUser,
     question: questions[qid],
