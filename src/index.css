@@ -21,10 +21,11 @@ body {
 }
 
 .button-action {
-  background-color: mediumseagreen; 
-  border: none;
-  color: white; 
-  padding: 2px 4px;
+  background-color: mediumseagreen;
+  border-radius: 10px;
+  border:1px solid #18ab29;
+  color: white;
+  padding: 4px 4px;
   text-align: center;
   text-decoration: none;
   display: block;
@@ -33,6 +34,25 @@ body {
   justify-content: center;
   cursor: pointer;
   width: 100%;
+}
+
+.button-action:hover {
+  background-color: #009942;
+}
+
+.button-action:active {
+  position:relative;
+	top:1px;
+}
+
+input[type=text], select {
+  width: 100%;
+  padding: 5px 5px;
+  margin: 8px 0;
+  display: inline-block;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
 }
 
 code {
@@ -93,7 +113,7 @@ li {
   text-decoration: none;
 }
 
-.tabs {
+.tabs, .container-body {
   border: 1px solid #ccc;
   margin: 10px auto 10px auto;
   max-width: 600px;
@@ -144,7 +164,13 @@ li {
 }
 
 .card-stat {
-  border: 1px solid #ccc;
+  border: 2px solid #ccc;
+  margin-bottom: 5px;
+  padding: 10px;
+}
+
+.card-stat-active {
+  border: 2px solid teal;
   margin-bottom: 5px;
   padding: 10px;
 }
@@ -155,6 +181,16 @@ li {
   padding: 10px;
   font-size: 17px;
   font-weight: bold;
+  text-align: center;
+}
+
+.card-item-heading {
+  border-bottom: 1px solid #ddd;
+  background-color: #eee;
+  padding: 10px;
+  font-size: 17px;
+  font-weight: bold;
+  text-align: 'left';
 }
 
 .card-content {
@@ -162,6 +198,10 @@ li {
   display: flex;
   flex-direction: row;
   flex: 1
+}
+
+.card-content-rows {
+  padding: 10px;
 }
 
 .card-content > * {
@@ -176,4 +216,11 @@ li {
   width: 2px;
   margin: 0px 5px;
   background: #ddd;
+}
+
+.form-label {
+  display: block;
+  position: relative;
+  margin-bottom: 10px;
+  cursor: pointer;
 }

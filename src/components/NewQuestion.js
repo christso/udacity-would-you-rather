@@ -12,7 +12,7 @@ class NewQuestion extends Component {
   handleSubmit = (e) => {
     e.preventDefault();
     const { optionOneText, optionTwoText } = this.state;
-    this.props.dispatch(handleAddQuestion(optionOneText, optionTwoText));    
+    this.props.dispatch(handleAddQuestion(optionOneText, optionTwoText));
     this.props.history.push('/');
   }
 
@@ -31,23 +31,26 @@ class NewQuestion extends Component {
 
     return (
       <div>
-        <h3>Create New Question</h3>
-        <p>Complete the question:</p>
-        <h2>Would you rather ...</h2>
+        <div className='container-body'>
+          <div className='card-heading'>Create New Question</div>
+          <div className='card-content-rows'>
+            <div>Complete the question:</div>
+            <h3>Would you rather ...</h3>
 
-        <form onSubmit={this.handleSubmit}>
-          <input type='text' onChange={this.handleOptionOneChange} placeholder='Enter Option One Text here' />
-          <p><strong>OR</strong></p>
-          <input type='text' onChange={this.handleOptionTwoChange} placeholder='Enter Option Two Text here' />
-          <br />
-          <button 
-            className='button-action'
-            type='submit'
-            disabled={optionOneText === '' || optionTwoText === ''}>
-              Submit
+            <form onSubmit={this.handleSubmit}>
+              <input type='text' onChange={this.handleOptionOneChange} placeholder='Enter Option One Text here' />
+              <p><strong>OR</strong></p>
+              <input type='text' onChange={this.handleOptionTwoChange} placeholder='Enter Option Two Text here' />
+              <br />
+              <button
+                className='button-action'
+                type='submit'
+                disabled={optionOneText === '' || optionTwoText === ''}>
+                Submit
           </button>
-        </form>
-
+            </form>
+          </div>
+        </div>
       </div>
     )
   }

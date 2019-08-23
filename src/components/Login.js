@@ -27,16 +27,20 @@ class Login extends Component {
     const userIds = Object.keys(users);
 
     return (
-      <div>
-        <h3>Welcome to the Would You Rather App!</h3>
-        <h5>Please sign in to continue</h5>
-        <h2>Sign In</h2>
-        <form onSubmit={this.handleSubmit}>
-          <select value={selectedUser} onChange={this.handleChange}>
-            {userIds.map(id => (<option key={id} value={id}>{users[id].name}</option>))}
-          </select>
-          <button type='submit' className='button-action'>Sign In</button>
-        </form>
+      <div className='container-body'>
+        <div className='card-heading'>
+          <div>Welcome to the Would You Rather App!</div>
+          <div style={{fontSize: '12px', fontWeight: 'normal', marginTop: '10px'}}>Please sign in to continue</div>
+        </div>
+        <div className='card-content-rows'>
+          <h2 style={{textAlign: 'center'}}>Sign In</h2>
+          <form onSubmit={this.handleSubmit}>
+            <select value={selectedUser} onChange={this.handleChange}>
+              {userIds.map(id => (<option key={id} value={id}>{users[id].name}</option>))}
+            </select>
+            <button type='submit' className='button-action'>Sign In</button>
+          </form>
+        </div>
       </div>
     )
   }

@@ -9,7 +9,7 @@ function QuestionResult(props) {
   const totalVotes = oneVotes + twoVotes;
 
   return (
-    <div className='card'>
+    <div className='container-body'>
       <div className='card-heading'>Asked by {author.name}</div>
       <div className='card-content'>
         <div>
@@ -18,12 +18,12 @@ function QuestionResult(props) {
         <div className='divider' />
         <div>
           <div style={{fontWeight: 'bold', marginBottom: '10px'}}>Results:</div>
-          <div className='card-stat'>
+          <div className={yourAnswer === OPTION_ONE ? 'card-stat-active' : 'card-stat'}>
             <div>{question.optionOne.text} {yourAnswer === OPTION_ONE ? ' (your vote)' : ''}</div>
             <div>{Math.round(oneVotes / totalVotes * 100)}%</div>
             <div>{oneVotes} out of {totalVotes} votes</div>
           </div>
-          <div className='card-stat'>
+          <div className={yourAnswer === OPTION_TWO ? 'card-stat-active' : 'card-stat'}>
             <div>{question.optionTwo.text} {yourAnswer === OPTION_TWO ? ' (your vote)' : ''}</div>
             <div>{Math.round(twoVotes / totalVotes * 100)}%</div>
             <div>{twoVotes} out of {totalVotes} votes</div>

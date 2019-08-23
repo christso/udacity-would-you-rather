@@ -10,7 +10,7 @@ function Question(props) {
   const { question, author } = props;
   return (
     <div className='card'>
-      <div className='card-heading'>{author.name} asks:</div>
+      <div className='card-item-heading'>{author.name} asks:</div>
       <div className='card-content'>
         <div>
           <img src={author.avatarURL} alt="Avatar" height="100" width="100"></img>
