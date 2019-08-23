@@ -7,31 +7,30 @@ function User(props) {
   const created = user.questions.length;
 
   return (
-    <div className='card'>
-      <h3>{user.name}</h3>
-      <table>
-        <tbody>
-          <tr>
-            <td>
-              <img src={user.avatarURL} alt="Avatar" height="100" width="100"></img>
-            </td>
-            <td>
-              <div className='row'>
-                <div className='column'>Answered questions</div>
-                <div className='column'>{answered}</div>
-              </div>
-              <div className='row'>
-                <div className='column'>Created questions</div>
-                <div className='column'>{created}</div>
-              </div>
-            </td>
-            <td>
-              <div>Score</div>
-              <div>{answered + created}</div>
-            </td>
-          </tr>
-        </tbody>
-      </table>
+    <div className='container-body'>
+      <div className='card-item-heading'>{user.name}</div>
+      <div className='card-content'>
+        <div>
+          <img src={user.avatarURL} alt="Avatar" height="100" width="100"></img>
+        </div>
+        <div className='divider' />
+        <div style={{ width: '70%'}}>
+          <div style={{ marginBottom: '25px'}}>
+            <div className='stat-param'>Answered questions</div>
+            <div className='stat-value'>{answered}</div>
+          </div>
+          <hr />
+          <div>
+            <div className='stat-param'>Created questions</div>
+            <div className='stat-value'>{created}</div>
+          </div>
+        </div>
+        <div className='divider' />
+        <div className='stat-col'>
+          <div className='stat-col-param'>Score</div>
+          <div className='stat-col-value'>{answered + created}</div>
+        </div>
+      </div>
     </div>
   )
 }
