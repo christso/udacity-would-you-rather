@@ -43,8 +43,8 @@ function mapStateToProps({ authedUser, users, questions }) {
   if (!user) {
     return {
       authedUser: null,
-      unansweredQuestions: [],
-      answeredQuestions: []
+      unansweredQuestions: {},
+      answeredQuestions: {}
     };
   }
 

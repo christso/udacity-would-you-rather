@@ -1,16 +1,18 @@
 import React from 'react';
-import { connect } from 'react-redux';
 import Question from './Question';
 
-function QuestionList(props) {
+export default function QuestionList(props) {
   const { questions } = props;
+  const questionIds = Object.keys(questions)
+    .sort((a, b) => {
+      return questions[a].timestamp - questions[b].timestamp; 
+    });
+
   return (
     <div>
-      {Object.keys(questions).map(qid => (
+      {questionIds.map(qid => (
         <Question key={qid} questionId={qid} />
       ))}
     </div>
   );
 }
-
-export default connect()(QuestionList);
