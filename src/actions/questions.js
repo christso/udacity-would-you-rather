@@ -23,8 +23,10 @@ function answerQuestion ({ authedUser, qid, answer }) {
 
 export function handleAnswerQuestion(info) {
   return (dispatch) => {
+    dispatch(showLoading());
     return saveQuestionAnswer(info)
       .then(() => dispatch(answerQuestion(info)))
+      .then(() => dispatch(hideLoading()))
       .catch(e => {
         console.warn('Error in handleAnswerQuestion: ', e);
       });
