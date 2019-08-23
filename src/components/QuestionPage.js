@@ -10,7 +10,7 @@ export const OPTION_TWO = 'optionTwo';
 function QuestionPage(props) {
   const { question, author, authedUser } = props;
   if (!question) {
-    this.props.history.push('/404');
+    props.history.push('/404');
     return null;
   }
 
