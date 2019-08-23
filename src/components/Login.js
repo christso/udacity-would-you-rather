@@ -36,7 +36,10 @@ class Login extends Component {
           <h2 style={{textAlign: 'center'}}>Sign In</h2>
           <form onSubmit={this.handleSubmit}>
             <select value={selectedUser} onChange={this.handleChange}>
-              {userIds.map(id => (<option key={id} value={id}>{users[id].name}</option>))}
+              {userIds.map(id => (
+                <option key={id} value={id} style={{ backgroundImage: users[id].avatarURL }}>
+                  {users[id].name}
+                </option>))}
             </select>
             <button type='submit' className='button-action'>Sign In</button>
           </form>

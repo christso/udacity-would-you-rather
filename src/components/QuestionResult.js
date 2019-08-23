@@ -16,15 +16,23 @@ function QuestionResult(props) {
           <img src={author.avatarURL} alt="Avatar" height="100" width="100"></img>
         </div>
         <div className='divider' />
-        <div>
+        <div style={{ width: '100%' }}>
           <div style={{fontWeight: 'bold', marginBottom: '10px'}}>Results:</div>
           <div className={yourAnswer === OPTION_ONE ? 'card-stat-active' : 'card-stat'}>
-            <div>{question.optionOne.text} {yourAnswer === OPTION_ONE ? ' (your vote)' : ''}</div>
+          {yourAnswer === OPTION_ONE 
+            ? <div className='card-sticker-container'>
+                <div className='card-sticker-content'>Your vote</div>
+              </div> : null }
+            <div>{question.optionOne.text}</div>
             <div>{Math.round(oneVotes / totalVotes * 100)}%</div>
             <div>{oneVotes} out of {totalVotes} votes</div>
           </div>
           <div className={yourAnswer === OPTION_TWO ? 'card-stat-active' : 'card-stat'}>
-            <div>{question.optionTwo.text} {yourAnswer === OPTION_TWO ? ' (your vote)' : ''}</div>
+            {yourAnswer === OPTION_TWO ?
+              <div className='card-sticker-container'>
+                <div className='card-sticker-content'>Your vote</div>
+              </div> : null}
+            <div>{question.optionTwo.text}</div>
             <div>{Math.round(twoVotes / totalVotes * 100)}%</div>
             <div>{twoVotes} out of {totalVotes} votes</div>
           </div>

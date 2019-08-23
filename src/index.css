@@ -264,3 +264,23 @@ hr {
   color: white;
   margin: 10px;
 }
+
+.card-sticker-container {
+  float: right;
+  position: relative;
+  top: -30px;
+  right: -30px;
+}
+
+.card-sticker-content {
+  background: rgb(209, 178, 0);
+  color: white;
+  font-weight: bold;
+  padding: 5px;
+  text-align: center;
+  display: table-cell;
+  vertical-align: middle;
+  border-radius: 50%;
+  height: 45px;
+  width: 45px;
+}
