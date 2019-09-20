@@ -11,6 +11,48 @@ To run the project:
 * install all project dependencies with `npm install`
 * start the development server with `npm start`
 
+## Features
+
+### Login
+
+If you visit any page in the app without being signed in, then you will be asked to sign in first.
+
+<p align="center">
+  <img width="550" height="383" src="demo/login.gif">
+</p>
+
+### Homepage
+
+After you sign in, you'll see a dashboard containing a list of questions categorised into two tabs - Unanswered and Answered. Selecting either tab will filter the questions.
+
+<p align="center">
+  <img width="550" height="332" src="demo/home.gif">
+</p>
+
+### New Question
+
+If you ask a new question, all users will see the question in their Unanswered Questions list.  
+
+<p align="center">
+  <img width="550" height="332" src="demo/new-question.gif">
+</p>
+
+### Answer Question
+
+If you click on View Poll in an unanswered question, then you will be asked to answer the question. After you answer the question, you'll see the number of votes for each choice.
+
+<p align="center">
+  <img width="550" height="332" src="demo/answer-question.gif">
+</p>
+
+### Leaderboard
+
+The leaderboard ranks each user based on how many questions they answered and created. The more questions you answer and create, the higher your score.
+
+<p align="center">
+  <img width="550" height="332" src="demo/leaderboard.gif">
+</p>
+
 ## Project Structure
 ```bash
 ├── README.md # This file.
